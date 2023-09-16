@@ -1,0 +1,203 @@
+{% extends 'store/home.html' %}
+{% load static %}
+{% block content %}
+<section class="sec1" id="about">
+    <div style="text-align: center;padding: 30px 0;">
+        <h1><span style="color: rgba(232, 67, 147, 1);"> About</span> Us</h1>
+    </div>
+
+    <div class="div1">
+        <div class="d1">
+            <!-- i think good -->
+            <video src="{% static 'images/about-vid.mp4' %}" autoplay loop muted></video>
+        </div>
+        <!-- On the left side -->
+        <div class="d2">
+            <h3>Why Choose Us?</h3>
+            <p>Lorem Ipsum Dolor Sit Amet, Consectetur Adipisicing Elit. 
+                Rem Cumque Sit Nemo Pariatur Corporis Perspiciatis Aspernatur A 
+                Ullam Repudiandae Autem Asperiores Quibusdam Omnis Commodi Alias Repellat Illum, Unde Optio Temporibus.<br>
+                <br>
+                Lorem Ipsum Dolor, Sit Amet Consectetur Adipisicing Elit. 
+                Accusantium Ea Est Commodi Incidunt Magni Quia Molestias Perspiciatis, Unde Repudiandae Quidem.</p>
+            <!-- Best practice for button Yes! -->
+            <div><button class="button" style="vertical-align:middle"><span>Learn More</span></button></div>
+        </div>
+    </div>
+</section>
+
+<header class="container" style="padding: 100px 0;">
+    <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-12 div2">
+                <img src="{% static 'images/icon-1.png' %}" style="width: 5rem; height: 5rem;">
+                <div class="card-body">   
+                    <h5>Free Delivery</h5>
+                    <p>On All Order</p>
+                </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 div2">
+                <img src="{% static 'images/icon-2.png' %}" style="width: 5rem; height: 5rem;">
+                <div class="card-body">
+                    <h5>10 Days Returns</h5>
+                    <p>Moneyback Guarantee</p>
+                </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 div2">
+                <img src="{% static 'images/icon-3.png' %}" style="width: 5rem; height: 5rem;">
+                <div class="card-body">
+                    <h5>Offer & Gifts</h5>
+                    <p>On All Orders</p>
+                </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 div2">
+                <img src="{% static 'images/icon-4.png' %}" style="width: 5rem; height: 5rem;">
+                <div class="card-body">
+                    <h5>Secure Paymens</h5>
+                    <p>Protected By Paypal</p>
+                </div>
+        </div>
+    </div>
+
+</header>
+
+<section id="product">
+    <div style="text-align: center;padding: 30px 0;">
+        <h1><span style="color: rgba(232, 67, 147, 1);"> Latest</span> products</h1>
+    </div>
+    <div class="row">
+        {% for product in products %}
+              <div class="col-lg-4">
+                    <img class="thumbnail" src="{{product.imageURL}}">
+                    <div class="box-element product">
+                          <h6><strong>{{product.name}}</strong></h6>
+                          <hr>
+              
+                          <button data-product={{product.id}} data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+                          <a class="btn btn-outline-success" href="{{product.imageURL}}" target="_blank">View</a>
+                          <h4 style="display: inline-block; float: right;"><strong>${{product.price|floatformat:2}}</strong></h4>
+                    </div>
+              </div>
+        {% endfor %}
+  </div>
+</section>
+
+<section class="container mt-5" id="review">
+    <div style="text-align: center;padding: 30px 0 0 0;">
+        <h1><span style="color: rgba(232, 67, 147, 1);"> Customer's</span> Review</h1>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-lg-4 col-md-6 col-sm-12 div3" style="padding: 1rem;">
+            <p>Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. 
+                Corrupti Asperiores Laboriosam Praesentium Enim Maiores? 
+                Ad Repellat Voluptates Alias Facere Repudiandae Dolor Accusamus Enim Ut Odit, 
+                Aliquam Nesciunt Eaque Nulla Dignissimos.
+            </p>
+            <div class="row">
+                <img class="img" src="{% static 'images/pic-1.png' %}" style="width: 5rem; height: 5rem;">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <h3>John Deo</h3>
+                    <p>Happy Customer</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 div3" style="padding: 1rem;">
+            <p>Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. 
+                Corrupti Asperiores Laboriosam Praesentium Enim Maiores? 
+                Ad Repellat Voluptates Alias Facere Repudiandae Dolor Accusamus Enim Ut Odit, 
+                Aliquam Nesciunt Eaque Nulla Dignissimos.
+            </p>
+            <div class="row">
+                <img class="img" src="{% static 'images/pic-1.png' %}" style="width: 5rem; height: 5rem;">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <h3>John Deo</h3>
+                    <p>Happy Customer</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12 div3" style="padding: 1rem;">
+            <p>Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. 
+                Corrupti Asperiores Laboriosam Praesentium Enim Maiores? 
+                Ad Repellat Voluptates Alias Facere Repudiandae Dolor Accusamus Enim Ut Odit, 
+                Aliquam Nesciunt Eaque Nulla Dignissimos.
+            </p>
+            <div class="row">
+                <img class="img" src="{% static 'images/pic-1.png' %}" style="width: 5rem; height: 5rem;">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <h3>John Deo</h3>
+                    <p>Happy Customer</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="contact" style="padding: 10rem 0;">
+    <div style="text-align: center;padding: 1rem 0;">
+        <h1><span style="color: rgba(232, 67, 147, 1);"> Contact</span> Us</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="box-element" id="form-wrapper">
+                <form id="form">
+                    <div id="user-info">
+                        <input required class="form-control" type="text" name="name" placeholder="Name..">
+                    </div>
+                    <br>
+                    <div class="user-info">
+                        <input required class="form-control" type="email" name="email" placeholder="Email..">
+                    </div>
+                    <br>
+                    <div class="user-info">
+                        <input required class="form-control" type="number" name="number" placeholder="Number..">
+                    </div>
+                    <br>
+                    <div class="user-info">
+                        <textarea required class="form-control" name="message" id="" cols="60" rows="10" placeholder="Message..."></textarea>
+                    </div>
+                    <hr>
+                    <button class="button" style="vertical-align:middle; width: 100%;"><span>Send</span></button>
+                </form>
+            </div>
+            
+        </div>
+    
+        <div class="col-lg-6">
+                <img class="img2" src="{% static 'images/contact-img.svg' %}">
+        </div>
+    </div>
+</section>
+
+<section class="container div4">
+    <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <h3>Quick Links</h3>
+            <p><a href="#home">Home</a></p>
+            <p><a href="#about">About</a></p>
+            <p><a href="#product">Products</a></p>
+            <p><a href="#review">Review</a></p>
+            <p><a href="#contact">Contact</a></p>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <h3>Extra Links</h3>
+            <p><a href="#">My Account</a></p>
+            <p><a href="#">My Order</a></p>
+            <p><a href="#">My Favorite</a></p>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <h3>Locations</h3>
+            <p><a href="#">India</a></p>
+            <p><a href="#">USA</a></p>
+            <p><a href="#">Japan</a></p>
+            <p><a href="#">France</a></p>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12">
+            <h3>Contact Info</h3>
+            <p><a href="#">+251938654544</a></p>
+            <p><a href="#">Example@Gmail.Com</a></p>
+            <p><a href="#">Addis Ababa, Ethopia -400104</a></p>
+            <img src="{% static 'images/payment.png' %}" alt="">
+        </div>
+    </div>
+</section>
+{% endblock %}
